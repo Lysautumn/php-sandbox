@@ -9,20 +9,18 @@ function onReady() {
 // addRecord runs when add button is clicked. it gathers information from inputs
 // sends ajax request to post new album
 function addRecord() {
-    console.log('button clicked!');
     let newTitle = $('#newAlbumName').val();
     let newArtist = $('#newAlbumArtist').val();
     let newRecord = {
         title: newTitle,
         artist: newArtist
     }
-    console.log(newRecord);
+
     $.ajax({
         method: 'POST',
         url: 'post-album.php',
         data: newRecord
     }).then(response => {
-        console.log('response from POST', response);
         getAlbums();
     }).catch(error => {
         console.log('error from POST', error);
@@ -36,7 +34,6 @@ function getAlbums() {
         method: 'GET',
         url: 'get-albums.php'
     }).then(response => {
-        console.log('response from GET', response);
         appendAlbums(response);
     }).catch(error => {
         console.log('error in GET', error);
