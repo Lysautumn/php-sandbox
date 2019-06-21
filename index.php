@@ -17,5 +17,8 @@
         <input type="text" placeholder="Album Name" id="newAlbumName" />
         <input type="text" placeholder="Artist" id="newAlbumArtist" />
         <button id="addNewRecord">Add Album</button>
+        <ul id="albumList">
+
+        </ul>
     </body>
 </html>

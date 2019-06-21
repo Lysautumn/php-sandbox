@@ -37,7 +37,17 @@ function getAlbums() {
         url: 'get-albums.php'
     }).then(response => {
         console.log('response from GET', response);
+        appendAlbums(response);
     }).catch(error => {
         console.log('error in GET', error);
     })
+}
+
+// function to append album information on the DOM
+function appendAlbums(arrayOfAlbums) {
+    let outputElement = $('#albumList');
+    outputElement.empty();
+    for(let album of arrayOfAlbums) {
+        outputElement.append(`<li>${album.title} - ${album.artist}</li>`);
+    }
 }
